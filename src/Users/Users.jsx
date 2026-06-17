@@ -53,28 +53,26 @@ const Users = () => {
         header: "Role",
         size: 100,
       },
-    //   {
-    //     header: "Action",
-    //     size: 80,
-    //     Cell: ({ row }) => (
-    //       <button
-    //         onClick={() => navigate(`/editUser/${row.original._id}`)}
-    //         className="text-[#90191F] hover:text-[#6f1217]"
-    //       >
-    //         <FiEdit2 size={16} />
-    //       </button>
-    //     ),
-    //   },
+      //   {
+      //     header: "Action",
+      //     size: 80,
+      //     Cell: ({ row }) => (
+      //       <button
+      //         onClick={() => navigate(`/editUser/${row.original._id}`)}
+      //         className="text-[#90191F] hover:text-[#6f1217]"
+      //       >
+      //         <FiEdit2 size={16} />
+      //       </button>
+      //     ),
+      //   },
     ],
     [navigate],
   );
 
-  if (isLoading) {
-    return <BloodDropLoader />;
-  }
-
   return (
     <div style={{ width: "100%" }}>
+      {loading && <BloodDropLoader />}
+
       <div
         style={{
           display: "flex",

@@ -196,12 +196,9 @@ const DonorList = () => {
     [],
   );
 
-  if (isLoading) {
-    return <BloodDropLoader />;
-  }
-
-  return (
+    return (
     <div style={{ width: "100%" }}>
+       {isLoading && <BloodDropLoader />}
       <div
         style={{
           display: "flex",
