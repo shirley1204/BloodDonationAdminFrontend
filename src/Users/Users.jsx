@@ -69,9 +69,9 @@ const Users = () => {
     [navigate],
   );
 
-  return (
+ return (
     <div style={{ width: "100%" }}>
-      {loading && <BloodDropLoader />}
+      {isLoading && <BloodDropLoader />}
 
       <div
         style={{
