@@ -196,7 +196,11 @@ const DonorList = () => {
     [],
   );
 
-    return (
+  if (isLoading) {
+    return <BloodDropLoader />;
+  }
+
+  return (
     <div style={{ width: "100%" }}>
       <div
         style={{
@@ -229,7 +233,7 @@ const DonorList = () => {
         <div
           style={{ fontSize: "12px", color: "#90191F", marginBottom: "5px" }}
         >
-          
+          Loading...
         </div>
       )}
       <MaterialReactTable
