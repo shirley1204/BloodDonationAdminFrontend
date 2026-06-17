@@ -77,12 +77,9 @@ const AddUser = () => {
 
   const labelClass = "text-sm font-medium text-black";
 
-  if (loading) {
-    return <BloodDropLoader />;
-  }
-
-  return (
+   return (
     <div className="min-h-screen flex items-start justify-center bg-gray-50">
+          {loading && <BloodDropLoader />}
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 mt-8">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-semibold text-black">Create User</h2>
