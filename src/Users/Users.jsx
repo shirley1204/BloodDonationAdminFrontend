@@ -69,7 +69,11 @@ const Users = () => {
     [navigate],
   );
 
- return (
+  if (isLoading) {
+    return <BloodDropLoader />;
+  }
+
+  return (
     <div style={{ width: "100%" }}>
       <div
         style={{
