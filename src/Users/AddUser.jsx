@@ -16,6 +16,7 @@ const AddUser = () => {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -77,9 +78,9 @@ const AddUser = () => {
 
   const labelClass = "text-sm font-medium text-black";
 
-   return (
+  return (
     <div className="min-h-screen flex items-start justify-center bg-gray-50">
-          {loading && <BloodDropLoader />}
+      {loading && <BloodDropLoader />}
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 mt-8">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-semibold text-black">Create User</h2>
@@ -140,14 +141,26 @@ const AddUser = () => {
             <label className={labelClass}>
               Password <span className="text-red-500">*</span>
             </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              value={form.password}
-              onChange={handleChange}
-              className={inputClass}
-            />
+
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                className={inputClass + " pr-12"}
+                placeholder="Enter password"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 hover:text-black"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+
             {errors.password && (
               <p className="text-xs text-red-500 mt-1">{errors.password}</p>
             )}

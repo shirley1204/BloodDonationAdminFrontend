@@ -198,7 +198,6 @@ const DonorList = () => {
 
     return (
     <div style={{ width: "100%" }}>
-       {isLoading && <BloodDropLoader />}
       <div
         style={{
           display: "flex",
@@ -230,7 +229,7 @@ const DonorList = () => {
         <div
           style={{ fontSize: "12px", color: "#90191F", marginBottom: "5px" }}
         >
-          Loading...
+          
         </div>
       )}
       <MaterialReactTable
