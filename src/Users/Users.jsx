@@ -71,8 +71,6 @@ const Users = () => {
 
  return (
     <div style={{ width: "100%" }}>
-      {isLoading && <BloodDropLoader />}
-
       <div
         style={{
           display: "flex",
