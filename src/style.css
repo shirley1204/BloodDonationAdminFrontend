@@ -1,0 +1,154 @@
+
+
+
+.login-wrapper {
+  display: flex;
+  height: 95vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.login-left {
+  flex: 1;
+  background: #fff5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-left img {
+  width: 95%;
+  max-width: 800px;
+}
+
+.login-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.form-card {
+  width: 80%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(144, 25, 31, 0.15);
+  border-top: 5px solid #90191F;
+}
+
+.form-card h2 {
+  color: #90191F;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.login-wrapper input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  color: black;
+}
+
+.login-wrapper input::placeholder {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.login-wrapper input:focus {
+  border-color: #90191F;
+}
+
+.password-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-box span {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #90191F;
+}
+
+.login-wrapper button {
+  width: 100%;
+  padding: 12px;
+  background: #90191F;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.login-wrapper button:hover {
+  background: #6f1217;
+}
+
+.login-wrapper .error-box {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.login-wrapper .toggle-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: black;
+}
+
+.login-wrapper .toggle-text span {
+  color: #90191F;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.brand-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.brand-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #90191F;
+  letter-spacing: 1px;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.brand-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #90191F;
+  letter-spacing: 1px;
+}
+
+.brand-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #90191F;
+  margin: 6px auto 0;
+  border-radius: 10px;
+}
