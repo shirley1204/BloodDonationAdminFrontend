@@ -1,22 +1,44 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Sidebar = ({}) => {
   const user = useSelector((store) => store?.user);
+  const [collapsed, setCollapsed] = useState(false);
+  const showText = !collapsed;
   const role = user?.role || "user";
-  const linkClass = ({ isActive }) =>
-    `flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-      isActive
-        ? "bg-white text-[#90191F] font-semibold"
-        : "text-white hover:bg-[#7a1419]"
-    }`;
+ 
+  const linkClass = (isActive, collapsed) =>
+  `flex items-center rounded-lg transition ${
+    isActive
+      ? "bg-white text-[#90191F] font-semibold"
+      : "text-white hover:bg-[#7a1419]"
+  } ${
+    collapsed
+      ? "justify-center px-0 py-3"
+      : "gap-3 px-4 py-3"
+  }`;
+
+    useEffect(() => {
+  const handleResize = () => {
+    setCollapsed(window.innerWidth < 1024); // lg breakpoint
+  };
+
+  handleResize(); // run on mount
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   return (
-    <aside className="w-64 h-screen bg-[#90191F] text-white p-4 space-y-2">
+  <div
+    className={`h-full transition-all duration-300
+    ${collapsed ? "w-16" : "w-64"}`}
+  >
       {/* DASHBOARD */}
       {role === "admin" && (
-        <NavLink to="/" className={linkClass}>
+        <NavLink to="/"  className={({ isActive }) => linkClass(isActive, collapsed)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"
@@ -30,12 +52,12 @@ const Sidebar = ({}) => {
             <rect x="14" y="12" width="7" height="9" />
             <rect x="3" y="16" width="7" height="5" />
           </svg>
-          Dashboard
+          {showText && "Dashboard"}
         </NavLink>
       )}
 
       {/* DONORS */}
-     {role === "admin" &&  <NavLink to="/donors" className={linkClass}>
+     {role === "admin" &&  <NavLink to="/donors"  className={({ isActive }) => linkClass(isActive, collapsed)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5"
@@ -51,9 +73,9 @@ const Sidebar = ({}) => {
           <path d="M12 9v6" />
           <path d="M9 12h6" />
         </svg>
-        Donors
+        {showText && "Donors"}
       </NavLink>}
-      <NavLink to="/donor/add" className={linkClass}>
+      <NavLink to="/donor/add"  className={({ isActive }) => linkClass(isActive, collapsed)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5"
@@ -72,9 +94,9 @@ const Sidebar = ({}) => {
           <path d="M19 8v6" />
           <path d="M16 11h6" />
         </svg>
-        Add Donor
+      {showText && "Add Donor"}
       </NavLink>
-     {role === "admin" &&  <NavLink to="/users" className={linkClass}>
+     {role === "admin" &&  <NavLink to="/users"  className={({ isActive }) => linkClass(isActive, collapsed)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5"
@@ -88,7 +110,7 @@ const Sidebar = ({}) => {
           <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
           <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
-        Users
+       {showText && "Users"}
       </NavLink>}
 
       {/* PROFILE */}
@@ -107,7 +129,7 @@ const Sidebar = ({}) => {
         </svg>
         Profile
       </NavLink> */}
-    </aside>
+    </div>
   );
 };
 

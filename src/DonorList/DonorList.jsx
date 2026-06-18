@@ -209,21 +209,32 @@ const DonorList = () => {
           alignItems: "center",
           marginBottom: "10px",
           padding: "8px 4px",
+          flexWrap: "wrap",
+          gap: "10px",
         }}
       >
-        <div style={{ fontSize: "16px", fontWeight: 700, color: "black" }}>
+        <div style={{ fontSize: "16px", fontWeight: 700, color: "#90191F" }}>
           Total Registrations: {rowCount}
         </div>
-        <div>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "8px",
+            flexWrap: "wrap",
+            fontSize: "13px",
+          }}
+        >
           <button
             onClick={downloadXLSX}
-            className="bg-[#90191F] text-white px-6 py-2 rounded-lg hover:opacity-90 disabled:opacity-60 cursor-pointer"
+            className="bg-[#90191F] text-white px-6 py-2 rounded-lg hover:opacity-90 disabled:opacity-60 cursor-pointer text"
           >
             Download Excel
           </button>
+
           <button
-            className="bg-[#90191F] text-white px-6 py-2 rounded-lg hover:opacity-90 disabled:opacity-60 cursor-pointer ml-1"
             onClick={handleRefresh}
+            className="bg-[#90191F] text-white px-6 py-2 rounded-lg hover:opacity-90 disabled:opacity-60 cursor-pointer"
           >
             Refresh
           </button>
@@ -286,7 +297,7 @@ const DonorList = () => {
           sx: {
             backgroundColor: "#ffffff",
             fontWeight: 600,
-            fontSize: "15px",
+            fontSize: "13px",
             padding: "12px 10px",
             color: "#90191F",
           },

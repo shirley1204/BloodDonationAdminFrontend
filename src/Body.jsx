@@ -55,9 +55,9 @@ const Body = () => {
 
       <div className="flex flex-1 overflow-hidden gap-3 p-1 mb-0.5">
         {/* Sidebar */}
-        <aside className="w-64 bg-[#90191F] rounded-xl text-white shadow-sm">
-          <Sidebar />
-        </aside>
+       <aside className="bg-[#90191F] rounded-xl text-white shadow-sm">
+  <Sidebar />
+</aside>
 
         {/* Content */}
         <main className="flex-1 overflow-auto rounded-xl bg-white p-6 shadow-sm">

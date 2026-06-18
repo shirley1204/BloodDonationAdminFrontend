@@ -123,7 +123,7 @@ const handleRefresh = () => {
 
       {loading && <div style={styles.loading}>Loading data...</div>}
        
-      <div style={styles.grid4}>
+      <div style={styles.grid4} className="grid4">
         <Card title="Total Donors" value={totalDonors} />
         <Card title="Male" value={genderStats.Male} color="#2563eb" />
         <Card title="Female" value={genderStats.Female} color="#db2777" />
@@ -131,7 +131,7 @@ const handleRefresh = () => {
       </div>
 
       <div style={styles.sectionTitle}>Blood Groups</div>
-      <div style={styles.gridBlood}>
+      <div style={styles.gridBlood} className="gridBlood">
         {Object.entries(bloodStats).map(([bg, count]) => (
           <div key={bg} style={styles.bloodCard}>
             <div style={styles.bloodType}>{bg}</div>
@@ -140,7 +140,7 @@ const handleRefresh = () => {
         ))}
       </div>
 
-      <div style={styles.grid3}>
+      <div style={styles.grid3} className="grid3">
         {/* Blood Group Distribution */}
         <div style={styles.cardBox}>
           <div style={styles.sectionTitle}>Blood Group Distribution</div>
@@ -198,7 +198,7 @@ const handleRefresh = () => {
 
       <div style={styles.sectionTitle}>User Contributions</div>
 
-      <div style={styles.userGrid}>
+      <div style={styles.userGrid} className="userGrid">
         {userStats.map((u, i) => (
           <div key={i} style={styles.userCard}>
             <div style={styles.avatar}>{u.user.slice(0, 1).toUpperCase()}</div>
