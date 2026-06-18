@@ -129,7 +129,7 @@ const ViewUser = () => {
 
               <button
                 onClick={() => setShowModal(true)}
-                className="bg-[#90191F] text-white px-4 rounded-lg text-sm"
+                className="bg-[#90191F] text-white px-4 rounded-lg text-sm cursor-pointer"
               >
                 Reset Password
               </button>
@@ -142,7 +142,7 @@ const ViewUser = () => {
 
           <button
             onClick={() => navigate("/users")}
-            className="w-full py-2.5 rounded-lg bg-[#90191F] text-white hover:bg-[#6f1217]"
+            className="w-full py-2.5 rounded-lg bg-[#90191F] text-white hover:bg-[#6f1217] cursor-pointer"
           >
             Back
           </button>
@@ -168,7 +168,7 @@ const ViewUser = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#90191F]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#90191F] cursor-pointer"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
@@ -182,7 +182,7 @@ const ViewUser = () => {
                   setShowModal(false);
                   setNewPassword("");
                 }}
-                className="px-4 py-2 border rounded-lg"
+                className="px-4 py-2 border rounded-lg cursor-pointer"
               >
                 Cancel
               </button>
@@ -190,7 +190,7 @@ const ViewUser = () => {
               <button
                 onClick={handleResetPassword}
                 disabled={resetLoading}
-                className="px-4 py-2 bg-[#90191F] text-white rounded-lg"
+                className="px-4 py-2 bg-[#90191F] text-white rounded-lg cursor-pointer"
               >
                 {resetLoading ? "Saving..." : "Update"}
               </button>

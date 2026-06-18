@@ -59,7 +59,7 @@ const Users = () => {
         Cell: ({ row }) => (
           <button
            onClick={() => navigate(`/viewUser/${row.original._id}`)}
-            className="text-[#90191F] hover:text-[#6f1217]"
+            className="text-[#90191F] hover:text-[#6f1217] cursor-pointer"
             title="View User"
           >
             <FiEye size={18} />

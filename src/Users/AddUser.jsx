@@ -158,7 +158,7 @@ const AddUser = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#90191F]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#90191F] cursor-pointer"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>

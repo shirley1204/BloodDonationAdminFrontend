@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#90191F] text-white px-4 py-3 flex items-center justify-between shadow-md flex-wrap gap-3">
-      <div className="flex items-center gap-2 min-w-[180px]">
+      <div className="flex items-center gap-2">
         <div className="relative">
           <FaHospital className="text-2xl text-white" />
           <FaTint className="absolute -bottom-1 -right-1 text-red-300 text-sm" />
@@ -58,7 +58,7 @@ const Navbar = () => {
 
           <button
             onClick={handleLogout}
-            className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-white text-[#90191F] font-semibold rounded-md hover:bg-gray-100 transition"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-white text-[#90191F] font-semibold rounded-md hover:bg-gray-100 transition cursor-pointer"
           >
             Logout
           </button>
