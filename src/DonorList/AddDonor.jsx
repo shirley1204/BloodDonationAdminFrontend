@@ -118,7 +118,7 @@ const AddDonor = () => {
       setValue("address", donor.address);
       setValue("bloodGrp", donor.bloodGrp);
       setValue("age", donor.age);
-      setValue("count", donor.count);
+      setValue("count", Number(donor?.count ?? 0) + 1);
       setSearchLocked(true);
     } catch (err) {
       setDonorFound(false);

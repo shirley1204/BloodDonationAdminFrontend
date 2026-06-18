@@ -11,6 +11,7 @@ import AddDonor from "./DonorList/AddDonor";
 import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import Users from "./Users/Users";
 import AddUser from "./Users/AddUser";
+import ViewUser from "./Users/ViewUser";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/donor/add" element={<AddDonor />} />
              <Route path="/users" element={<Users />} />
                <Route path="/addUser" element={<AddUser />} />
+               <Route path="/viewUser/:id" element={<ViewUser />} />
           </Route>
         </Routes>
       </BrowserRouter>

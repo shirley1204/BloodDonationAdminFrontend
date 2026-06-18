@@ -43,7 +43,10 @@ const Body = () => {
   }, []);
 
   if (authLoading || !userData) {
-    return (<BloodDropLoader />)
+    return(
+    <div className="h-screen flex flex-col bg-gray-100">
+      <BloodDropLoader />
+    </div>)
   }
 
   return (

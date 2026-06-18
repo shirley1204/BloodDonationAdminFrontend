@@ -37,12 +37,9 @@ export const validateSignUpForm = (firstName,lastName,emailId,password) => {
 export const validateLoginForm = (emailId,password) => {
   const errors = {};
 
-  // Email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Email (user id)
   if (!emailId.trim()) {
-    errors.emailId = "Email is required";
-  } else if (!emailRegex.test(emailId)) {
-    errors.emailId = "Invalid email format";
+    errors.emailId = "User Id is required";
   }
 
   // Password

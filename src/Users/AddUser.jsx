@@ -3,6 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../Utils/Constants";
 import { useNavigate } from "react-router-dom";
 import BloodDropLoader from "../Utils/BloodDropLoader";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const AddUser = () => {
   const navigate = useNavigate();
@@ -41,9 +42,12 @@ const AddUser = () => {
       err.lastName = "Last name must be 2–50 characters";
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.emailId)) {
-      err.emailId = "Enter valid email";
+    if (
+      !form.emailId.trim() ||
+      form.emailId.length < 2 ||
+      form.emailId.length > 50
+    ) {
+      err.emailId = "User Id must be 2–50 characters";
     }
 
     if (!form.password || form.password.length < 6) {
@@ -123,12 +127,12 @@ const AddUser = () => {
           </div>
           <div>
             <label className={labelClass}>
-              Email Address <span className="text-red-500">*</span>
+              User Id <span className="text-red-500">*</span>
             </label>
             <input
-              type="email"
+              type="text"
               name="emailId"
-              placeholder="Enter email address"
+              placeholder="Enter User Id"
               value={form.emailId}
               onChange={handleChange}
               className={inputClass}
@@ -151,13 +155,12 @@ const AddUser = () => {
                 className={inputClass + " pr-12"}
                 placeholder="Enter password"
               />
-
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 hover:text-black"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#90191F]"
               >
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
 

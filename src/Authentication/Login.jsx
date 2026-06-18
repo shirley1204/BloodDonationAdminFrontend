@@ -4,9 +4,10 @@ import { BASE_URL } from "../Utils/Constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/Redux/userSlice";
-import {validateLoginForm } from "../Utils/Validation";
+import { validateLoginForm } from "../Utils/Validation";
 import LoginImg from "../assets/loginpage.png";
 import Footer from "../DrawerLayout/Footer";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [emailId, setEmailId] = useState("");
@@ -33,13 +34,13 @@ const Login = () => {
 
       if (res.data) {
         dispatch(addUser(res.data?.data));
-        const{role} = res.data?.data
-        if(role === "admin"){
-        navigate("/");
-        }else if(role === "user"){
-          navigate("/donor/add")
-        }else{
-          navigate("/")
+        const { role } = res.data?.data;
+        if (role === "admin") {
+          navigate("/");
+        } else if (role === "user") {
+          navigate("/donor/add");
+        } else {
+          navigate("/");
         }
       }
     } catch (err) {
@@ -51,13 +52,10 @@ const Login = () => {
     <>
       <div className="login-wrapper">
         <div className="login-left">
-          <img
-            src={LoginImg}
-            alt="Blood Donation"
-          />
+          <img src={LoginImg} alt="Blood Donation" />
         </div>
 
-       <div className="login-right">
+        <div className="login-right">
           <div className="form-card">
             <div className="brand-header">
               <h1 className="brand-title">Possa Hospital</h1>
@@ -69,8 +67,8 @@ const Login = () => {
             <p className="subtitle">Donate blood, save lives ❤️</p>
 
             <input
-              type="email"
-              placeholder="Email"
+              type="text"
+              placeholder="User Id"
               value={emailId}
               onChange={(e) => setEmailId(e.target.value)}
             />
@@ -82,10 +80,13 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-
-              <span onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? "Hide" : "Show"}
-              </span>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2.2 -translate-y-1/2 text-[#90191F]"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
 
             {error && (
@@ -96,7 +97,7 @@ const Login = () => {
               </div>
             )}
 
-            <button onClick={handlelogin}>LOGIN</button>
+            <button className="login_btn" onClick={handlelogin}>LOGIN</button>
           </div>
         </div>
       </div>

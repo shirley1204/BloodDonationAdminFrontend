@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../Utils/Constants";
 import { MaterialReactTable } from "material-react-table";
 import { useNavigate } from "react-router-dom";
-import { FiEdit2 } from "react-icons/fi";
+import { FiEdit2, FiEye } from "react-icons/fi";
 import BloodDropLoader from "../Utils/BloodDropLoader";
 
 const Users = () => {
@@ -53,18 +53,19 @@ const Users = () => {
         header: "Role",
         size: 100,
       },
-      //   {
-      //     header: "Action",
-      //     size: 80,
-      //     Cell: ({ row }) => (
-      //       <button
-      //         onClick={() => navigate(`/editUser/${row.original._id}`)}
-      //         className="text-[#90191F] hover:text-[#6f1217]"
-      //       >
-      //         <FiEdit2 size={16} />
-      //       </button>
-      //     ),
-      //   },
+      {
+        header: "Action",
+        size: 80,
+        Cell: ({ row }) => (
+          <button
+           onClick={() => navigate(`/viewUser/${row.original._id}`)}
+            className="text-[#90191F] hover:text-[#6f1217]"
+            title="View User"
+          >
+            <FiEye size={18} />
+          </button>
+        ),
+      },
     ],
     [navigate],
   );
